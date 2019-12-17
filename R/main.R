@@ -8,6 +8,13 @@ source('./R/fromDESeq2.R')
 source("./R/deseq_obj.R")
 source("./R/miscellaneous.R")
 source("./R/wald_sup.R")
+
+source("./R/Create_DE_object.R")
+source("./R/Filter_Data.R")
+source("./R/Normalize_Data.R")
+source("./R/DE_test.R")
+source("./R/Get_DEG.R")
+
 library(locfit)
 
 # functions for doing DEA:
