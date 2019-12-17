@@ -15,6 +15,8 @@ source("./R/Normalize_Data.R")
 source("./R/DE_test.R")
 source("./R/Get_DEG.R")
 
+
+
 library(locfit)
 
 # functions for doing DEA:

@@ -2,10 +2,11 @@
 #'
 #' Normalize raw data with optional normalization techniques
 #'
-#' @usage Normalize_Data(x, option = c("size_factor", "simplest", "median", "none"))
+#' @usage Normalize_Data(x, option = c("size_factor", "simplest", "median", "none", "log"))
 #'
 #' @param x a DE object from Filter_Data
 #' @param option option of normalization:
+#'   "log": log2 scale
 #'   "simplest": divided by mean reads of each cell
 #'   "median": divided by median reads of each cell
 #'   "size_factor": (default)divided by size factor, which is the median of the ratios of raw data and geometric mean
@@ -30,6 +31,8 @@ Normalize_Data = function(x, option = "size_factor"){
     norm_data = raw_data / apply(raw_data, 2, median)
   }else if (option == "none"){
     norm_data = raw_data
+  }else if (option == "log"){
+    norm_data = log2(raw_data+1)
   }
 
   x@data$normalized = norm_data

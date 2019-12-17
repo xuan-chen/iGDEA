@@ -43,13 +43,13 @@ DEA_test = function(x, group, option = "Wilcox", verbose = T){
   x@DE_info$logfc = logfc
 
   if (option == "Wilcox"){
+    # print("wilcox")
     source("./R/wilcox_test.R")
     p = WilcoxTest(dt1, dt2)
   } else if (option == "T"){
+    # print("t")
     source("./R/t_test.R")
-    dt1 = x@data$normalized[,ref_index,]
-    dt2 = x@data$normalized[,-ref_index]
-    p = T_test(dt1, dt2)
+    p = T_Test(dt1, dt2)
   } else if (option == "NB"){
     # setwd("./R")
     source("./R/main.R")
